@@ -1,0 +1,120 @@
+% Intro {{{1
+%=============================================== vim: set fdm=marker: ====
+%         FILE: main.tex
+%        USAGE: make all
+%  DESCRIPTION: Tableau du nombre d'élèves en heures d'étude
+% REQUIREMENTS: LaTeX, make
+%       AUTHOR: Cyril Rouiller
+%      COMPANY: Ponthaux, Suisse
+%      VERSION: $Rev: 12 $ by $Author: rc $
+%      CREATED: 02. 02. 12 07:52:51 CET
+%     REVISION: $Date: 2012-02-07 16:16:00 +0100 (mar 07 fév 2012) $
+% $URL: https://rnvch.indefero.net/svn/rnvch/latex/trunk/tabetude/src/main.tex $
+%=========================================================================
+
+% entête {{{1
+\documentclass[8pt,a4paper]{scrartcl}	% Type de document
+\usepackage[french]{babel}				% Titres en français
+\usepackage[T1]{fontenc}				% Correspondance clavier -> document
+\usepackage[utf8]{inputenc}			% Gestion de l'unicode
+\usepackage{xspace}						% gestions de l'espace après une macro
+\usepackage{array}						% Tableau avancé
+\usepackage{multirow}					% Assemblage de ligne pour les tableaux
+\usepackage{graphicx}					% Modification de texte
+
+\usepackage[%
+	noheadfoot,
+	landscape=true,
+	portrait=false,
+	left=6mm,
+	right=6mm,
+	top=15mm,
+	bottom=6mm,
+	]{geometry}
+
+\pagestyle{empty}
+
+% Configuration {{{1
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.12}
+\newcommand\tit[5]{&\rotatebox{90}{\small#1/#2 }\rotatebox{90}{\small#3/#4 }}
+\newcommand\lig[4]{&#1\string:#2--#3\string:#4 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& \\\cline{2-41}}
+\newcommand\jour[1]{%
+	\hline%
+	\multirow{9}{*}{\rotatebox{90}{#1}}%
+	\lig{07}{38}{08}{25}%
+	\lig{08}{25}{09}{12}%
+	\lig{09}{12}{10}{00}%
+	\lig{10}{13}{11}{00}%
+	\lig{11}{00}{11}{48}%
+	\cline{2-41}%
+	\cline{2-41}%
+	\cline{2-41}%
+	\lig{12}{50}{13}{45}%
+	\lig{13}{45}{14}{35}%
+	\lig{14}{35}{15}{25}%
+	\lig{15}{25}{16}{15}%
+	\hline%
+}
+
+\begin{document}%{{{1
+\vspace*{\fill}
+\begin{center}
+{\Large Tableau des heures de surveillances}~~~~~~Année: \makebox[7em]{\dotfill}~~~~~~Prof.: \makebox[30em]{\dotfill}\smallskip
+
+\newcolumntype{A}{p{14.6pt}|}
+\noindent\begin{tabular}{|cc|AAAAAAAA|AAAAAAAA|AAAAAA|AAAAAA|AAAAAAAAAAA}
+% Titre {{{2 
+\hline
+	&
+	\tit{22}{08}{26}{08}{11}
+	\tit{29}{08}{02}{09}{11}
+	\tit{05}{09}{09}{09}{11}
+	\tit{12}{09}{16}{09}{11}
+	\tit{19}{09}{23}{09}{11}
+	\tit{26}{09}{30}{09}{11}
+	\tit{03}{10}{07}{10}{11}
+	\tit{10}{10}{14}{10}{11}
+	\tit{31}{10}{04}{11}{11}
+	\tit{07}{11}{11}{11}{11}
+	\tit{14}{11}{18}{11}{11}
+	\tit{21}{11}{25}{11}{11}
+	\tit{28}{11}{02}{12}{11}
+	\tit{05}{12}{09}{12}{11}
+	\tit{12}{12}{16}{12}{11}
+	\tit{19}{12}{23}{12}{11}
+	\tit{09}{01}{13}{01}{12}
+	\tit{16}{01}{20}{01}{12}
+	\tit{23}{01}{27}{01}{12}
+	\tit{30}{01}{03}{02}{12}
+	\tit{06}{02}{10}{02}{12}
+	\tit{13}{02}{17}{02}{12}
+	\tit{27}{02}{02}{03}{12}
+	\tit{05}{03}{09}{03}{12}
+	\tit{12}{03}{16}{03}{12}
+	\tit{19}{03}{23}{03}{12}
+	\tit{26}{03}{30}{03}{12}
+	\tit{02}{04}{06}{04}{12}
+	\tit{23}{04}{27}{04}{12}
+	\tit{30}{04}{04}{05}{12}
+	\tit{07}{05}{11}{05}{12}
+	\tit{14}{05}{18}{05}{12}
+	\tit{21}{05}{25}{05}{12}
+	\tit{28}{05}{01}{06}{12}
+	\tit{04}{05}{08}{05}{12}
+	\tit{11}{05}{15}{05}{12}
+	\tit{18}{05}{22}{05}{12}
+	\tit{25}{05}{29}{05}{12}
+	\tit{02}{06}{06}{06}{12}
+	\\
+% lignes {{{2
+\jour{lundi}
+\jour{mardi}
+\jour{mercredi}
+\jour{jeudi}
+\jour{vendredi}
+
+% Tableau {{{1
+\end{tabular}%
+\end{center}
+\end{document}
