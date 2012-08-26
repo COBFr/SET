@@ -1,1 +1,15 @@
 out/
+*.aux
+*.bb
+*.dvi
+*.log
+*.nav
+*.out
+*.pdf
+*.ps
+*.snm
+*.tmp
+*.toc
+*.vrb
+*.swp
+*.*~
