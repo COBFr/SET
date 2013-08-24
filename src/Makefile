@@ -1,4 +1,4 @@
-#! /usr/bin/make -f
+#!/usr/bin/make -f
 COMPIL	= ./out
 SRC		= .
 PDF		= pdflatex -output-directory ${COMPIL} $<
@@ -33,4 +33,3 @@ test:
 	@echo "Tex ${TEX}"
 	@echo "Target ${TARGET}"
 	@echo "Dir ${DIR}"
-
