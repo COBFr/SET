@@ -28,7 +28,7 @@
 	portrait=false,
 	left=6mm,
 	right=6mm,
-	top=15mm,
+	top=13mm,
 	bottom=6mm,
 	]{geometry}
 
@@ -36,9 +36,12 @@
 
 % Configuration {{{1
 \setlength{\tabcolsep}{2pt}
+
+\input{./out/datetab}
+
 \renewcommand{\arraystretch}{1.12}
-\newcommand\tit[5]{&\rotatebox{90}{\small#1/#2 }\rotatebox{90}{\small#3/#4 }}
-\newcommand\lig[4]{&#1\string:#2-#3\string:#4&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&\\\cline{2-41}}
+\newcommand\tit[5]{&\shortstack{\rotatebox{90}{\small#1/#2 }\rotatebox{90}{\small#3/#4 }\\ {\small #5}} }
+\newcommand\lig[4]{&#1\string:#2-#3\string:#4\bashtab\\\cline{2-\bashnum}}
 \newcommand\jour[1]{%
 	\hline%
 	\multirow{9}{*}{\rotatebox{90}{#1}}%
@@ -47,9 +50,9 @@
 	\lig{09}{12}{10}{00}%
 	\lig{10}{13}{11}{00}%
 	\lig{11}{00}{11}{48}%
-	\cline{2-41}%
-	\cline{2-41}%
-	\cline{2-41}%
+	\cline{2-\bashnum}%
+	\cline{2-\bashnum}%
+	\cline{2-\bashnum}%
 	\lig{12}{50}{13}{45}%
 	\lig{13}{45}{14}{35}%
 	\lig{14}{35}{15}{25}%
@@ -60,52 +63,18 @@
 \begin{document}%{{{1
 \vspace*{\fill}
 \begin{center}
-{\Large Tableau des heures de surveillances}~~~~~~Année: \makebox[7em]{\dotfill}~~~~~~Prof.: \makebox[30em]{\dotfill}\smallskip
+{\Large Tableau récapitulatif des heures de surveillances}%
+~~~~~~Année: \makebox[7em]{\dotfill}%
+~~~~~~Prof.: \makebox[30em]{\dotfill}%
+~~~~~~\emph{généré le \today}%
+\smallskip
 
 \newcolumntype{A}{p{14.2pt}|}
-\noindent\begin{tabular}{|cc|AAAAAAAA|AAAAAAAA|AAAAA|AAAAAA|AAAAAAAAAAAA}
+\noindent\bashcol
 % Titre {{{2 
 \hline
 	&
-	\tit{20}{08}{24}{08}{12}%
-	\tit{27}{08}{31}{08}{12}%
-	\tit{03}{09}{07}{09}{12}%
-	\tit{10}{09}{14}{09}{12}%
-	\tit{17}{09}{21}{09}{12}%
-	\tit{24}{09}{28}{09}{12}%
-	\tit{01}{10}{05}{10}{12}%
-	\tit{08}{10}{12}{10}{12}%
-	\tit{29}{10}{02}{11}{12}%
-	\tit{05}{11}{09}{11}{12}%
-	\tit{12}{11}{16}{11}{12}%
-	\tit{19}{11}{23}{11}{12}%
-	\tit{26}{11}{30}{11}{12}%
-	\tit{03}{12}{07}{12}{12}%
-	\tit{10}{12}{14}{12}{12}%
-	\tit{17}{12}{21}{12}{12}%
-	\tit{07}{01}{11}{01}{13}%
-	\tit{14}{01}{18}{01}{13}%
-	\tit{21}{01}{25}{01}{13}%
-	\tit{28}{01}{01}{02}{13}%
-	\tit{04}{02}{08}{02}{13}%
-	\tit{11}{02}{15}{02}{13}%
-	\tit{18}{02}{22}{02}{13}%
-	\tit{25}{02}{01}{03}{13}%
-	\tit{04}{03}{08}{03}{13}%
-	\tit{18}{03}{22}{03}{13}%
-	\tit{25}{03}{29}{03}{13}%
-	\tit{15}{04}{19}{04}{13}%
-	\tit{22}{04}{26}{04}{13}%
-	\tit{29}{04}{03}{05}{13}%
-	\tit{06}{05}{10}{05}{13}%
-	\tit{13}{05}{17}{05}{13}%
-	\tit{20}{05}{24}{05}{13}%
-	\tit{27}{05}{31}{05}{13}%
-	\tit{03}{06}{07}{06}{13}%
-	\tit{10}{06}{14}{06}{13}%
-	\tit{17}{06}{21}{06}{13}%
-	\tit{24}{06}{28}{06}{13}%
-	\tit{01}{07}{05}{07}{13}%
+	\bashtit
 	\\
 % lignes {{{2
 \jour{lundi}

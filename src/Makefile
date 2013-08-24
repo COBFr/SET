@@ -11,7 +11,7 @@ DIR		= ${COMPIL}
 
 all: ${TARGET}
 
-%.pdf : %.tex ${TEX} ${DIR} Makefile
+%.pdf : %.tex ${TEX} ${DIR} Makefile ${COMPIL}/datetab.tex
 	@${PDF} && ${PDF}
 
 clean:
@@ -19,6 +19,10 @@ clean:
 
 mrpropre: 
 	rm -rf ${COMPIL} 
+
+${COMPIL}/datetab.tex : datetab.sh ${DIR}
+	./datetab.sh > $@
+
 
 ${DIR}:
 	mkdir -p "$@"
