@@ -2,17 +2,17 @@
 # Script pour la préparation des dates 
 
 #Date du lundi de la première semaine de cours : yyyymmjj
-D="20130826"
+D="20140901"
 
 # nombre de semaine à afficher
-SEM="38"
+SEM="37"
 
 # Liste des lundis des semaine de vacances : jjmm séparé par des espaces
-VAC="2110 2810 2312 3012 0303 1404 2104"
+VAC="2010 2710 2212 2912 1602 0604 1304"
 
 # Affichage des variables afin de contrôlle
-#echo -n " Date de référence : $D :" ; date -d "$D"
-#echo " Vacances $VAC"
+echo -n "% Date de référence : $D :" ; date -d "$D"
+echo "% Vacances $VAC"
 
 # On passe la date donnée une semaine en avance pour la caller sur l'itération hebdomadaire
 D="$(date -d "$D -7 days" +%Y%m%d)"
