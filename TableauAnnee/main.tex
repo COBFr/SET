@@ -1,0 +1,89 @@
+% Intro {{{1
+%=============================================== vim: set fdm=marker: ====
+%         FILE: main.tex
+%        USAGE: make all
+%  DESCRIPTION: Tableau du nombre d'élèves en heures d'étude
+% REQUIREMENTS: LaTeX, make
+%       AUTHOR: Cyril Rouiller
+%      COMPANY: Ponthaux, Suisse
+%      VERSION: $Rev: 12 $ by $Author: rc $
+%      CREATED: 02. 02. 12 07:52:51 CET
+%     REVISION: $Date: 2012-02-07 16:16:00 +0100 (mar 07 fév 2012) $
+% $URL: https://rnvch.indefero.net/svn/rnvch/latex/trunk/tabetude/src/main.tex $
+%=========================================================================
+
+% entête {{{1
+\documentclass[8pt,a4paper]{scrartcl}	% Type de document
+\usepackage[french]{babel}				% Titres en français
+\usepackage[T1]{fontenc}				% Correspondance clavier -> document
+\usepackage[utf8]{inputenc}			% Gestion de l'unicode
+\usepackage{xspace}						% gestions de l'espace après une macro
+\usepackage{array}						% Tableau avancé
+\usepackage{multirow}					% Assemblage de ligne pour les tableaux
+\usepackage{graphicx}					% Modification de texte
+
+\usepackage[%
+	noheadfoot,
+	landscape=true,
+	portrait=false,
+	left=6mm,
+	right=6mm,
+	top=11mm,
+	bottom=8mm,
+	]{geometry}
+
+\pagestyle{empty}
+
+% Configuration {{{1
+\setlength{\tabcolsep}{2pt}
+
+\input{./out/datetab}
+
+\renewcommand{\arraystretch}{1.12}
+\newcommand\tit[5]{&\shortstack{\rotatebox{90}{\small#1/#2 }\rotatebox{90}{\small#3/#4 }\\ {\small #5}} }
+\newcommand\lig[4]{&#1\string:#2-#3\string:#4\bashtab\\\cline{2-\bashnum}}
+\newcommand\jour[1]{%
+	\hline%
+	\multirow{9}{*}{\rotatebox{90}{#1}}%
+	\lig{07}{38}{08}{25}%
+	\lig{08}{25}{09}{12}%
+	\lig{09}{12}{10}{00}%
+	\lig{10}{13}{11}{00}%
+	\lig{11}{00}{11}{48}%
+	\cline{2-\bashnum}%
+	\cline{2-\bashnum}%
+	\cline{2-\bashnum}%
+	\lig{12}{50}{13}{45}%
+	\lig{13}{45}{14}{35}%
+	\lig{14}{35}{15}{25}%
+	\lig{15}{25}{16}{15}%
+	\hline%
+}
+
+\begin{document}%{{{1
+\vspace*{\fill}
+\begin{center}
+{\Large Tableau récapitulatif des heures de surveillances}%
+~~~~~~Année: \makebox[7em]{2014-2015}%
+~~~~~~Prof.: \makebox[30em]{\dotfill}%
+~~~~~~\emph{généré le \today} (RC)%
+\smallskip
+
+\newcolumntype{A}{p{14.2pt}|}
+\noindent\bashcol
+% Titre {{{2 
+\hline
+	&
+	\bashtit
+	\\
+% lignes {{{2
+\jour{lundi}
+\jour{mardi}
+\jour{mercredi}
+\jour{jeudi}
+\jour{vendredi}
+
+% Tableau {{{1
+\end{tabular}%
+\end{center}
+\end{document}
